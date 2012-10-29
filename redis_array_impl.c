@@ -67,7 +67,7 @@ ra_load_hosts(RedisArray *ra, HashTable *hosts TSRMLS_DC)
 		call_user_function(&redis_ce->function_table, &ra->redis[i], &z_cons, &z_ret, 0, NULL TSRMLS_CC);
 
 		/* create socket */
-		redis_sock = redis_sock_create(host, host_len, port, 0, 0, NULL); /* TODO: persistence? */
+		redis_sock = redis_sock_create(host, host_len, port, 0, 1, NULL); /* persistence connection */
 
 		/* connect */
 		redis_sock_server_open(redis_sock, 1 TSRMLS_CC);
